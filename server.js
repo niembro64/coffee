@@ -17,3 +17,20 @@ app.get("/api/fake", (req, res) => {
   };
   res.json(response);
 });
+
+app.get("/api/order", (req, res) => {
+  const bases = [
+    "dark roast",
+    "light roast",
+    "espresso shot",
+    "medium roast",
+    "chai tea",
+  ];
+
+  const order = {
+    name: faker.name.findName(),
+    base: bases[Math.floor(Math.random() * bases.length)],
+    additive: "",
+  };
+  res.json(order);
+});
